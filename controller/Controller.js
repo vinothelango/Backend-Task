@@ -35,20 +35,26 @@ try {
 
     
 }
-const updateTask =async(req,res)=>{
-try {
-    const {id:taskID}= req.params
-    const task = await Task.findByIdAndUpdate(taskID,req.body,{new:true,runValidators:true})
+const updateTask = async (req, res) => {
+  try {
+    const { id: taskID } = req.params;  
 
-    if(!task){
-        res.status(404).json({message:`No task with Id: ${taskID}`})}
-        res.status(201).json({task})
-} catch (error) {
-    res.status(500).json({message:"internal server error"})
-}
+    const task = await Task.findByIdAndUpdate(
+      taskID,                   
+      req.body,
+      { new: true, runValidators: true }
+    );
 
-    res.send('update the all task')
-}
+    if (!task) {
+      return res.status(404).json({ message: `No task with Id: ${taskID}` });
+    }
+    res.status(200).json({ task });
+  } catch (error) {
+    console.error("Update task failed:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const deleteTask =async(req,res)=>{
     try {
         const {id:taskID}=req.params
