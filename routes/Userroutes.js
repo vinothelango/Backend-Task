@@ -9,6 +9,6 @@ const{getAllTask, createTask,
 
     router.route('/').get(getAllTask).post(createTask)
     
-    router.route('/:id').get(getTask).patch(updateTask).delete(deleteTask).put(editTask)
+    router.route('/:id').get(getTask).put(updateTask).delete(deleteTask).put(editTask)
 
     module.exports=router
