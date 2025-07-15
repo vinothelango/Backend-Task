@@ -4,8 +4,8 @@
   "description": "Node.js backend API with Express and MongoDB",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
+    "dev": "node Server.js",
+    "start": "node Server.js",
     "build": "echo 'No build needed for backend'"
   },
   "author": "Your Name",
